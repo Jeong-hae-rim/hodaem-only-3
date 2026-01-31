@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import "./game2048.css";
+import GlobalScoreBar from "./GlobalScoreBar";
 
 type Dir = "left" | "right" | "up" | "down";
 type Grid = number[][];
@@ -234,6 +235,8 @@ export default function Game2048() {
           <button onClick={() => doMove("right")}>▶</button>
         </div>
       </div>
+
+      <GlobalScoreBar />
     </div>
   );
 }

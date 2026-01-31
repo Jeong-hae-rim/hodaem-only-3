@@ -1,0 +1,71 @@
+.score-bar {
+  margin-top: 14px;
+  padding: 12px 12px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 158, 158, 0.55);
+  background: rgba(255, 97, 244, 0.08);
+}
+
+.score-bar__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+  color: #ffe4ea;
+  margin-bottom: 8px;
+}
+
+.score-bar__title {
+  color: #ffc7c7;
+}
+
+.score-bar__loading {
+  opacity: 0.8;
+  font-size: 12px;
+}
+
+.score-bar__total {
+  color: #ffffff;
+}
+
+.score-bar__track {
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 158, 158, 0.35);
+  overflow: hidden;
+}
+
+.score-bar__fill {
+  height: 100%;
+  width: var(--pct);
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 97, 244, 0.85),
+    rgba(255, 158, 158, 0.92)
+  );
+  box-shadow: 0 0 18px rgba(255, 97, 244, 0.35);
+  transition: width 220ms ease;
+}
+
+.score-bar__meta {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+  color: #ffc7c7;
+  opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .score-bar__row {
+    font-size: 12px;
+  }
+  .score-bar__meta {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
