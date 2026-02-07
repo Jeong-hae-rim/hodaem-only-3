@@ -1,0 +1,75 @@
+.leaderboard {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 158, 158, 0.55);
+  background: rgba(255, 97, 244, 0.06);
+}
+
+.leaderboard__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.leaderboard__tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.lb-tab {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 158, 158, 0.7);
+  background: rgba(0, 0, 0, 0.25);
+  color: #ffe4ea;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.lb-tab.active {
+  background: rgba(255, 158, 158, 0.85);
+  color: #111;
+}
+
+.leaderboard__list {
+  display: grid;
+  gap: 6px;
+}
+
+.lb-row {
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 158, 158, 0.25);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.lb-rank {
+  color: #ffc7c7;
+  font-weight: 700;
+}
+
+.lb-name {
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lb-metric {
+  color: #ffc7c7;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 768px) {
+  .leaderboard__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

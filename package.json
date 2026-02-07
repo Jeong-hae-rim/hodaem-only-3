@@ -11,6 +11,7 @@
     "gen-pwa": "pwa-assets-generator --preset minimal public/lovepunch.png"
   },
   "dependencies": {
+    "@libsql/client": "^0.17.0",
     "@types/react-router-dom": "^5.3.3",
     "nes.css": "^2.2.1",
     "react": "^18.3.1",
@@ -24,6 +25,7 @@
     "@types/react-dom": "^18.3.7",
     "@typescript-eslint/eslint-plugin": "^7.15.0",
     "@typescript-eslint/parser": "^7.15.0",
+    "@vercel/node": "^5.5.28",
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vitejs/plugin-react": "^4.3.1",
     "eslint": "^8.57.0",

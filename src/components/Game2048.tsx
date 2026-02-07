@@ -1,6 +1,10 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import "./game2048.css";
-import GlobalScoreBar from "./GlobalScoreBar";
+import { getOrCreatePlayerId, getNickname } from "../func/player";
+
+type Props = {
+  onScoreSubmitted?: () => void;
+};
 
 type Dir = "left" | "right" | "up" | "down";
 type Grid = number[][];
@@ -135,7 +139,7 @@ function getMaxTile(g: Grid): number {
   return m;
 }
 
-export default function Game2048() {
+export default function Game2048({ onScoreSubmitted }: Props) {
   const [grid, setGrid] = useState<Grid>(() =>
     addRandomTile(addRandomTile(emptyGrid()))
   );
@@ -144,7 +148,33 @@ export default function Game2048() {
   const gameOver = useMemo(() => !canMove(grid), [grid]);
   const maxTile = useMemo(() => getMaxTile(grid), [grid]);
 
+  const sentRef = useRef(false);
+
+  useEffect(() => {
+    if (!gameOver) {
+      sentRef.current = false;
+      return;
+    }
+    if (sentRef.current) return;
+    sentRef.current = true;
+
+    const playerId = getOrCreatePlayerId();
+    const nickname = getNickname();
+
+    fetch("/api/score", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ score, playerId, nickname }),
+    })
+      .then((r) => r.json())
+      .then((d) => {
+        if (d?.ok) onScoreSubmitted?.();
+      })
+      .catch(() => {});
+  }, [gameOver, score, onScoreSubmitted]);
+
   const reset = useCallback(() => {
+    sentRef.current = false;
     setScore(0);
     setGrid(addRandomTile(addRandomTile(emptyGrid())));
   }, []);
@@ -235,8 +265,6 @@ export default function Game2048() {
           <button onClick={() => doMove("right")}>▶</button>
         </div>
       </div>
-
-      <GlobalScoreBar />
     </div>
   );
 }

@@ -10,6 +10,8 @@ import type { MenuItem, MenuKey } from "../types/type";
 
 import MobileNav from "../components/MobileNav";
 import Game2048 from "../components/Game2048";
+import GlobalScoreBar from "../components/GlobalScoreBar";
+import Leaderboard from "../components/LeaderBoard";
 export default function GamePage() {
   const navigate = useNavigate();
   const { tab } = useParams<{ tab?: string }>();
@@ -66,6 +68,8 @@ export default function GamePage() {
     navigate(`/${key}`, { replace: true });
   };
 
+  const [refreshKey, setRefreshKey] = useState(0);
+
   return (
     <div className="pc-layout">
       <Sidebar
@@ -81,7 +85,16 @@ export default function GamePage() {
         onLogout={handleLogout}
       />
       <main className="pc-main" role="region" aria-live="polite">
-        <Game2048 />
+        <section className="cardish">
+          <GlobalScoreBar goal={2_000_000} refreshKey={refreshKey} />
+          <div style={{ marginTop: 12 }}>
+            <Leaderboard key={`lb-${refreshKey}`} />
+          </div>
+        </section>
+
+        <section className="cardish game-card">
+          <Game2048 onScoreSubmitted={() => setRefreshKey((k) => k + 1)} />
+        </section>
       </main>
     </div>
   );
