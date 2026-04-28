@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from "./pages/App";
+// import App from "./pages/App";
 import Secretpage from "./pages/SecretPage";
 import NotFound from "./pages/404";
 // import GamePage from "./pages/GamePage";
@@ -11,7 +11,7 @@ const Router = () => {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App />} />
+          {/* <Route path="/" element={<App />} /> */}
           <Route path="/goods" element={<MdPage />} />
           <Route path="/yummychu" element={<RollingPage />} />
           <Route path="/:tab?" element={<Secretpage />} />

@@ -1,3 +1,4 @@
+import "./App.css";
 import "./SecretPage.css";
 import BASKET from "../assets/images/eye2.png";
 import EYE from "../assets/images/eye1.png";
@@ -25,29 +26,6 @@ export default function SecretPage() {
   const [collected, setCollected] = useState(() => loadCollected());
 
   // 인증 가드
-  useEffect(() => {
-    const hasAccess =
-      sessionStorage.getItem(SESSION_KEY) === "1" ||
-      localStorage.getItem(SESSION_KEY) === "1";
-
-    const publicTabs: MenuKey[] = [
-      "notice",
-      "secret_angels",
-      "md_list",
-      "md-list",
-    ];
-    const isPublicTab = publicTabs.includes((tab as MenuKey) ?? "home");
-
-    if (!hasAccess && !isPublicTab) {
-      navigate("/", { replace: true });
-    } else if (
-      hasAccess &&
-      localStorage.getItem(SESSION_KEY) === "1" &&
-      sessionStorage.getItem(SESSION_KEY) !== "1"
-    ) {
-      sessionStorage.setItem(SESSION_KEY, "1");
-    }
-  }, [navigate, tab]);
 
   useEffect(() => {
     const onOpen = (e: Event) => {
