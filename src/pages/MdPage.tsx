@@ -1,15 +1,5 @@
 import "./SecretPage.css";
 import "./mdpage.css";
-import BASKET from "../assets/images/eye2.png";
-import EYE from "../assets/images/eye1.png";
-import EYE2 from "../assets/images/eye3.png";
-import { useMemo, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { SESSION_KEY } from "../func/constants";
-import Sidebar from "../components/Sidebar";
-import type { MenuItem, MenuKey } from "../types/type";
-
-import MobileNav from "../components/MobileNav";
 
 import COOPER21 from "../assets/images/mdList/mdlist3.png";
 import COOPER24 from "../assets/images/cooperWorks/cooper24_2.png";
@@ -18,47 +8,6 @@ import MDLIST1 from "../assets/images/mdList/mdlist1.png";
 import MDLIST2 from "../assets/images/mdList/mdlist2.png";
 
 export default function MdPage() {
-  // const navigate = useNavigate();
-  // const { tab } = useParams<{ tab?: string }>();
-
-  // const handleLogout = () => {
-  //   sessionStorage.removeItem(SESSION_KEY);
-  //   localStorage.removeItem(SESSION_KEY);
-  //   navigate("/", { replace: true });
-  // };
-
-  // const menu: MenuItem[] = useMemo(
-  //   () => [
-  //     {
-  //       key: "home",
-  //       label: "일정",
-  //       icon: <img src={EYE2} alt="" className="eye-logo" />,
-  //     },
-  //     {
-  //       key: "notice",
-  //       label: "공지",
-  //       icon: <img src={EYE} alt="" className="eye-logo" />,
-  //     },
-  //     { key: "secret_angels", label: "천사목록", icon: "👼🏻" },
-  //     {
-  //       key: "gallery",
-  //       label: "디스패치",
-  //       icon: <img src={BASKET} alt="" className="basket-logo" />,
-  //     },
-  //     { key: "download", label: "자료실", icon: "📦" },
-  //   ],
-  //   []
-  // );
-
-  // const [active, setActive] = useState<MenuKey>(
-  //   (menu.find((m) => m.key === tab)?.key as MenuKey) || "home"
-  // );
-
-  // const handleTabChange = (key: MenuKey) => {
-  //   setActive(key);
-  //   navigate(`/${key}`, { replace: true });
-  // };
-
   const items = [
     {
       id: 1,
@@ -84,28 +33,10 @@ export default function MdPage() {
       images: MDLIST1,
       author: "온리전 제작",
     },
-    // {
-    //   id: 5,
-    //   title: "아크릴 뱃지",
-    //   images: MDLIST2,
-    //   author: "온리전 제작",
-    // },
   ];
 
   return (
     <div className="pc-layout">
-      {/* <Sidebar
-        menu={menu}
-        active={active}
-        onChange={handleTabChange}
-        onLogout={handleLogout}
-      />
-      <MobileNav
-        menu={menu}
-        active={active}
-        onChange={handleTabChange}
-        onLogout={handleLogout}
-      /> */}
       <main className="pc-main" role="region" aria-live="polite">
         {items.map((item) => (
           <section className="goods-section" key={item.id}>
