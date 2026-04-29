@@ -8,7 +8,12 @@
 }
 
 .goods-image {
-  width: 70%;
+  max-height: 600px;
+}
+
+.goods-section h3 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .goods-section h5 {
@@ -16,15 +21,31 @@
 }
 
 .goods-image2 {
+  width: 200px;
+}
+
+.goods-image3 {
   width: 300px;
+}
+
+.goods-image4 {
+  max-height: 600px;
 }
 
 @media (max-width: 768px) {
   .goods-image {
-    width: 90%;
+    width: 80%;
   }
 
   .goods-image2 {
-    width: 200px;
+    width: 150px;
+  }
+
+  .goods-image3 {
+    width: 250px;
+  }
+
+  .goods-image4 {
+    height: 400px;
   }
 }
